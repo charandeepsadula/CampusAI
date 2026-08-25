@@ -1,0 +1,84 @@
+.admin-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f7fb;
+  padding: 30px;
+}
+
+.admin-card {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.admin-card h1 {
+  margin: 0 0 10px;
+  font-size: 32px;
+  color: #172033;
+}
+
+.admin-card > p {
+  color: #667085;
+  margin-bottom: 30px;
+}
+
+.admin-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-card label {
+  font-weight: bold;
+  margin-top: 8px;
+  color: #344054;
+}
+
+.admin-card input[type="text"] {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.admin-card input[type="file"] {
+  padding: 12px;
+  border: 1px dashed #98a2b3;
+  border-radius: 10px;
+  background: #f9fafb;
+}
+
+.admin-card button {
+  margin-top: 15px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.admin-card button:hover {
+  background: #1d4ed8;
+}
+
+.admin-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-message {
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #f0fdf4;
+  color: #166534 !important;
+}
