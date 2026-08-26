@@ -158,8 +158,47 @@ const createAdmin = async (req, res) => {
   }
 };
 
+const resetAdminPassword = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and password are required",
+      });
+    }
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    user.password = await bcrypt.hash(password, 10);
+    user.role = "admin";
+
+    await user.save();
+
+    res.json({
+      success: true,
+      message: "Admin password reset successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Password reset failed",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   register,
   login,
   createAdmin,
+  resetAdminPassword,
 };

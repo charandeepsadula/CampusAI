@@ -24,25 +24,22 @@ app.use("/api/chat", chatRoutes);
 app.get("/api/health", (req, res) => {
   res.json({
     success: true,
-    message: "CampusAI backend is running",
+    message: "CampusAI backend is running"
   });
 });
 
 const PORT = process.env.PORT || 5000;
 
-const startServer = async () => {
-  try {
-    console.log("Connecting to MongoDB...");
+// Start server first
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`CampusAI backend running on port ${PORT}`);
+});
 
-    await connectDB();
-
-    app.listen(PORT, () => {
-      console.log(`CampusAI backend running on port ${PORT}`);
-    });
-  } catch (error) {
-    console.error("Server startup failed:", error.message);
-    process.exit(1);
-  }
-};
-
-startServer();
+// Connect to MongoDB
+connectDB()
+  .then(() => {
+    console.log("MongoDB connected successfully");
+  })
+  .catch((error) => {
+    console.error("MongoDB connection failed:", error.message);
+  });
