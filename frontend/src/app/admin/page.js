@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://campusai-backend-9hmf.onrender.com";
 
 export default function AdminPage() {
   const [file, setFile] = useState(null);
@@ -75,7 +75,7 @@ export default function AdminPage() {
       setFile(null);
       setTitle("");
     } catch (error) {
-      setMessage(error.message);
+      setMessage(error.message || "Failed to upload PDF");
     } finally {
       setLoading(false);
     }
