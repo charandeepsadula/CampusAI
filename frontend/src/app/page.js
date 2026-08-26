@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://campusai-backend-9hmf.onrender.com";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -35,9 +35,7 @@ export default function Home() {
         throw new Error(data.message || "Login failed");
       }
 
-      // Save JWT for the admin dashboard
       localStorage.setItem("campusai_token", data.token);
-
       setToken(data.token);
     } catch (error) {
       setLoginError(error.message);
